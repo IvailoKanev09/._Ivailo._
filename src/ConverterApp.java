@@ -41,7 +41,7 @@ public class ConverterApp {
         group.add(arabToRoman);
         group.add(romanToArab);
 
-        // Панел за въвеждане - с бордюр за да не е до края на прозореца
+        // Панел за въвеждане
         JPanel topPanel = new JPanel(new BorderLayout(5, 5));
         topPanel.setBorder(BorderFactory.createEmptyBorder(10, 50, 0, 50));
         topPanel.setOpaque(false);
@@ -56,7 +56,7 @@ public class ConverterApp {
         centerPanel.add(convertButton);
         centerPanel.add(helpButton);
 
-        // Панел за резултати - също с бордюр
+        // Панел за резултати
         JPanel bottomPanel = new JPanel(new BorderLayout(5, 5));
         bottomPanel.setBorder(BorderFactory.createEmptyBorder(-20, 50, 10, 50));
         bottomPanel.setOpaque(false);
