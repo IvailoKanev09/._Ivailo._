@@ -1,4 +1,4 @@
-#Roman to Arabic Converter
+## Roman to Arabic Converter
 
 Това е Java Swing приложение за конвертиране на числа от римски към арабски и обратно.
 
