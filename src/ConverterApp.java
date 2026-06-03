@@ -41,14 +41,14 @@ public class ConverterApp {
         group.add(arabToRoman);
         group.add(romanToArab);
 
-        // Панел за въвеждане
+        // Въвеждане
         JPanel topPanel = new JPanel(new BorderLayout(5, 5));
         topPanel.setBorder(BorderFactory.createEmptyBorder(10, 50, 0, 50));
         topPanel.setOpaque(false);
         topPanel.add(new JLabel("Въведи числа (по едно на ред):"), BorderLayout.NORTH);
         topPanel.add(new JScrollPane(inputArea), BorderLayout.CENTER);
 
-        // Панел за бутони - центрирани
+        // Бутони
         JPanel centerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 20));
         centerPanel.setOpaque(false);
         centerPanel.add(arabToRoman);
@@ -56,14 +56,13 @@ public class ConverterApp {
         centerPanel.add(convertButton);
         centerPanel.add(helpButton);
 
-        // Панел за резултати
+        // Резултати
         JPanel bottomPanel = new JPanel(new BorderLayout(5, 5));
         bottomPanel.setBorder(BorderFactory.createEmptyBorder(-20, 50, 10, 50));
         bottomPanel.setOpaque(false);
         bottomPanel.add(new JLabel("РЕЗУЛТАТИ:"), BorderLayout.NORTH);
         bottomPanel.add(new JScrollPane(resultArea), BorderLayout.CENTER);
 
-        // Добавяне към рамката
         frame.add(topPanel);
         frame.add(centerPanel);
         frame.add(bottomPanel);
@@ -89,11 +88,10 @@ public class ConverterApp {
             resultArea.setText(output.toString());
         });
 
+        // Меню правила
         helpButton.addActionListener(e -> JOptionPane.showMessageDialog(frame, "ПРАВИЛА: I=1, V=5, X=10, L=50, C=100, D=500, M=1000. Диапазон: 1-3999."));
-
         frame.setVisible(true);
     }
-
     public static String toRoman(int number) {
         int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
         String[] roman = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
@@ -116,9 +114,15 @@ public class ConverterApp {
                 case 'L' -> 50; case 'C' -> 100; case 'D' -> 500;
                 case 'M' -> 1000; default -> 0;
             };
-            if (value == 0) return 0;
-            if (value < prevValue) result -= value;
-            else result += value;
+            if (value == 0){
+                return 0;
+            }
+            if (value < prevValue){
+                result -= value;
+            }
+            else{
+                result += value;
+            }
             prevValue = value;
         }
         return result;
